@@ -1,0 +1,9 @@
+node_modules/
+dist/
+demo-dist/
+output/
+.playwright-cli/
+src/react/data/*-data.ts
+*.tgz
+.DS_Store
+.env*

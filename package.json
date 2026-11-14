@@ -1,0 +1,77 @@
+{
+  "name": "@esmirnov.ai/migraine-lab",
+  "version": "0.1.0",
+  "description": "An interactive 2D migraine pathway, treatment comparison, and headless TypeScript simulator.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Eduard Smirnov",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eduard-s/migraine-lab.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "main": "./dist/react/index.js",
+  "types": "./dist/react/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/react/index.d.ts",
+      "import": "./dist/react/index.js"
+    },
+    "./react": {
+      "types": "./dist/react/index.d.ts",
+      "import": "./dist/react/index.js"
+    },
+    "./core": {
+      "types": "./dist/core/index.d.ts",
+      "import": "./dist/core/index.js"
+    },
+    "./styles.css": "./dist/styles.css",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md",
+    "ANATOMY.md"
+  ],
+  "scripts": {
+    "predev": "node scripts/prepare-assets.mjs",
+    "dev": "vite --host 127.0.0.1 --port 4182 --strictPort",
+    "build": "node scripts/clean-dist.mjs && node scripts/prepare-assets.mjs && tsc -p tsconfig.build.json && node scripts/copy-css.mjs",
+    "build:demo": "node scripts/prepare-assets.mjs && vite build",
+    "typecheck": "node scripts/prepare-assets.mjs && tsc --noEmit",
+    "test": "npm run build && node --test tests/*.test.mjs",
+    "test:package": "npm run build && node scripts/smoke-package.mjs",
+    "prepack": "npm run build",
+    "preview": "vite preview --host 127.0.0.1 --port 4182 --strictPort"
+  },
+  "dependencies": {
+    "three": "0.187.0"
+  },
+  "peerDependencies": {
+    "react": ">=18.2.0 <20"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@types/three": "0.187.0",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "typescript": "^5.9.3",
+    "vite": "8.3.8"
+  },
+  "engines": {
+    "node": ">=22.12"
+  }
+}

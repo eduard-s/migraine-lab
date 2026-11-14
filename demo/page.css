@@ -1,0 +1,14 @@
+:root {
+  background: #dfe5dc;
+  color: #303832;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body { margin: 0; }
+main { width: min(1280px, calc(100% - 40px)); margin-inline: auto; padding-block: 32px 60px; }
+main > header { margin-bottom: 24px; }
+main > header h1 { margin: 0 0 8px; font-size: 2rem; letter-spacing: -.045em; }
+main > header h1 span { color: #a67769; }
+main > header p { margin: 0; font-size: .94rem; line-height: 1.5; }
+@media (max-width: 640px) {
+  main { width: calc(100% - 28px); padding-top: 20px; }
+}
